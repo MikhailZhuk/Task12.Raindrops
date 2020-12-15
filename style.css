@@ -1,0 +1,16 @@
+body{
+   
+  }
+.conteiner1{
+  background-color: #38bffd;
+}
+.conteiner1,
+.fa-volume-mute{
+    display: none;
+}
+.fa-volume-up:focus{
+    box-shadow: 3px 3px 5px rgb(255, 0, 0); 
+}
+.fas{
+  cursor: pointer;
+}
