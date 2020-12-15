@@ -1,6 +1,11 @@
 body{
-   
+   background:#38bffd ;
   }
+
+
+.plase{
+  background-color: #d0ecf8;
+}
 .conteiner1{
   background-color: #38bffd;
 }
@@ -13,4 +18,24 @@ body{
 }
 .fas{
   cursor: pointer;
+}
+
+.conteiner{
+  background: rgb(255, 255, 255);
+  padding: 0;
+  margin: auto;
+  max-width: 1000px;
+  height: 100vh;
+  box-shadow: 0px 0px 50px darkblue;
+}
+
+.fa-star{
+  color: yellow;
+}
+
+.score{
+  justify-content: center;
+  background: gold;
+  border-radius: 0 0 50px 50px;
+  border: 2px solid rgba(77, 40, 242, 0.5);
 }
