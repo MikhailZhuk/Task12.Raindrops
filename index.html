@@ -17,14 +17,16 @@
 </head>
 
 <body>
-   <div class="conteiner1">
+     <div class="conteiner1">
      <div class="d-flex align-items-start justify-content-around p-4" style="height: 50vh;">
-      <i class="fas fa-volume-up fa-3x"></i>
-      <i class="fas fa-volume-mute fa-3x"></i>
+      <i class="fas fa-volume-up fa-3x">
+         <audio src="Boom.mp3" autostart="true" loop="true">NOT MUSIC</audio>
+      </i>
+      <i class="fas fa-volume-mute fa-3x none"></i>
       <i class="fas fa-expand fa-3x"></i>
     </div> 
     <div class="d-flex align-items-center justify-content-evenly" >
-      <button type="button" class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
+      <button type="button"  class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
         Play
       </button>
       <button type="button" class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
@@ -33,33 +35,72 @@
     </div>
    </div>
    <div class="conteiner_game d-flex"  >
-     <div class="plase">
-       <canvas></canvas>
+     <div class="place">
+
+       <div class="place_down">
+        <div class="drops run">
+            <P class="operation">+</P>
+            <div class="numb">
+              <p class="number1">17</p>
+              <P class="number2">9</P> 
+            </div>
+        </div> 
+        <div class="place_down">
+         <div class="drops run">
+            <P class="operation">+</P>
+            <div class="numb">
+              <p class="number1">17</p>
+              <P class="number2">9</P> 
+            </div>
+         </div>    
+        </div> 
+        
+       </div>
+      
+        <svg x="0px" y="0px" style="display: none;">
+          <symbol id="wave">
+            <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+            <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+            <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+            <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+          </symbol>
+        </svg>
+        <div class="circle">
+          <div class="circle_helper">
+            <div id="water" class="water">
+            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+              <use xlink:href="#wave"></use>
+            </svg>
+            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+              <use xlink:href="#wave"></use>
+            </svg>
+            </div>
+          </div>
+        </div>
      </div>
      <div class="tools">
-      <div class="score d-flex" style:>
-        <i class="fas fa-star fa-2x p-1"></i>
-        <h2 class="p-1">Score: <span class="point">0</span></h2>
+      <div class="score">
+        
+        <h2 class="p-1"><i class="fas fa-star"></i>  Score: <span class="point">0</span></h2>
       </div>
 
        <buttom class="random">Push</buttom>
-       <h1 class="numbers">Number</h1>
 
        
         <div class="wrapper">
-            <input class="boxOUT" disabled type="text" id="display" value="0" name="" placeholder="000000">
-          <button class="box7 btn btn-outline-primary">7</button>
-          <button class="box8 btn btn-outline-primary">8</button>
-          <button class="box9 btn btn-outline-primary">9</button>
+            <input class="boxOUT" disabled type="text" id="display" value="0" name="">
+          <button id="7" class="box7 btn btn-outline-primary">7</button>
+          <button id="8" class="box8 btn btn-outline-primary">8</button>
+          <button id="9" class="box9 btn btn-outline-primary">9</button>
           <button class="boxCL btn btn-outline-primary">Clear</button>
-          <button class="box4 btn btn-outline-primary">4</button>
-          <button class="box5 btn btn-outline-primary">5</button>
-          <button class="box6 btn btn-outline-primary">6</button>
-          <button class="box1 btn btn-outline-primary">1</button>
-          <button class="box2 btn btn-outline-primary">2</button>
-          <button class="box3 btn btn-outline-primary">3</button>
+          <button id="4" class="box4 btn btn-outline-primary">4</button>
+          <button id="5" class="box5 btn btn-outline-primary">5</button>
+          <button id="6" class="box6 btn btn-outline-primary">6</button>
+          <button id="1" class="box1 btn btn-outline-primary">1</button>
+          <button id="2" class="box2 btn btn-outline-primary">2</button>
+          <button id="3" class="box3 btn btn-outline-primary">3</button>
           <button class="boxENT btn btn-outline-primary">Enter</button>
-          <button class="box0 btn btn-outline-primary">0</button>
+          <button id="0" class="box0 btn btn-outline-primary">0</button>
           <button class="boxDEL btn btn-outline-primary">Delete</button>
         </div>
        </div>

@@ -7,11 +7,11 @@ body {
 
 .conteiner1 {
   background-color: #38bffd;
-}
-.conteiner1,
-.fa-volume-mute {
-  display: none;
   height: 100vh;
+}
+
+.none{
+ display: none;
 }
 
 .fa-volume-up:focus {
@@ -20,12 +20,16 @@ body {
 
 .fas {
   cursor: pointer;
+  width: 35px;
 }
 
 /* Page with game place */
 
 .conteiner_game {
-  display: flex;
+  display: grid;
+  grid-template-areas: "place place place tools";
+  grid-template-rows: 1fr ;
+  grid-template-columns: 3fr  1fr;
   background: rgb(144, 252, 232);
   padding: 0;
   margin: auto;
@@ -33,11 +37,153 @@ body {
   height: 100vh;
   box-shadow: 0px 0px 5rem darkblue;
 }
-.plase {
-  flex-grow: 4;
-  width: 80%;
-  background-color: #d0ecf8;
+.place {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  grid-area: "place";
+  width:  80%;
+  background: url("Rock.png") no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
+
+.place_down {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+
+.drops {
+  display:grid;
+  grid-template-areas: "operation number1"
+                       "operation number1";
+  grid-template-rows: 1fr ;
+  grid-template-columns: 30%  1fr;
+  background:  #38bffd;
+  height: 4rem;
+  width: 4rem;
+  font: bold 1.5rem Arial, sans-serif;
+  border: 4px solid rgba(77, 40, 242, 0.5);
+  border-radius: 50% 50% 50% 50%;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  z-index: 0;
+}
+
+.run {
+  animation-name: drop;
+  animation-timing-function: linear;
+}
+
+@keyframes drop {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(250px);}
+  100% { transform: translateY(560px);}
+}
+
+/* water */
+
+.circle {
+  height: 300px;
+  width: 1300px;
+  position: relative;
+  transform: translate(0, 0);
+}
+
+.circle_helper{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.circle .water {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(0, 100%);
+          transform: translate(0, 100%);
+  background: #4D6DE3;
+}
+.circle .water_wave {
+  width: 200%;
+  position: absolute;
+  bottom: 100%;
+}
+.circle .water_wave_back {
+  right: 0;
+  fill: #8cd2f0;
+  -webkit-animation: wave-back 1.4s infinite linear;
+          animation: wave-back 1.4s infinite linear;
+}
+.circle .water_wave_front {
+  left: 0;
+  fill: #4D6DE3;
+  margin-bottom: -1px;
+  -webkit-animation: wave-front 2s infinite linear;
+          animation: wave-front 2s infinite linear;
+}
+
+@-webkit-keyframes wave-front {
+  100% {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+
+@keyframes wave-front {
+  100% {
+    -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+  }
+}
+@-webkit-keyframes wave-back {
+  100% {
+    -webkit-transform: translate(50%, 0);
+            transform: translate(50%, 0);
+  }
+}
+@keyframes wave-back {
+  100% {
+    -webkit-transform: translate(50%, 0);
+            transform: translate(50%, 0);
+  }
+}
+
+/* end water */
+
+.operation{
+  text-align: center;
+  vertical-align: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.number1,
+.number2 {
+  margin: 0;
+  text-align: center;
+}
+
+
 .fa-star {
   color: yellow;
 }
@@ -46,6 +192,7 @@ body {
   display: flex;
   width: 95%;
   justify-content: center;
+  align-items: center;
   background: gold;
   border-radius: 0 0 5rem 5rem;
   border: 0.2rem solid rgba(77, 40, 242, 0.5);
@@ -53,8 +200,8 @@ body {
 
 .tools {
   display: flex;
+  grid-area: "tools";
   justify-content: space-between;
-  flex-grow: 1;
   flex-direction: column;
   padding-left: 0.5rem;
   margin: 0;
@@ -63,7 +210,7 @@ body {
 
 .wrapper {
   display: grid;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
   grid-auto-rows: 4rem;
   grid-auto-columns: 4rem;
 }
@@ -207,10 +354,9 @@ body {
 
   .boxCL,
   .boxENT,
-  .boxDEL,
-  .boxOUT {
+  .boxDEL {
     border: 0.1rem solid rgba(51, 22, 181, 0.9);
-    font: bold 0.5rem Arial, sans-serif;
+    font: bold 0.6rem Arial, sans-serif;
   }
 
   .box0,
@@ -227,6 +373,7 @@ body {
   }
 
   .boxOUT {
+    font: bold 1.5rem Arial, sans-serif;
     border: 0.2rem solid rgba(51, 22, 181, 0.9);
     border-bottom: 0.1rem solid rgba(51, 22, 181, 0.9);
   }
@@ -235,4 +382,17 @@ body {
   .boxCL {
     border-right: 0.2rem solid rgba(51, 22, 181, 0.9);
   }
+}
+
+@media screen and (max-width: 360px) {
+  .conteiner_game {
+    grid-template-areas: "place"
+                         "tools";
+    grid-template-rows: 1fr 1fr ;
+    grid-template-columns: 1fr;
+  }
+  .plase {
+    grid-area: "place";
+  }
+
 }
