@@ -3,7 +3,16 @@ let output = document.querySelector('.number1');
 let output1 = document.querySelector('.number2');
 const volumeMute = document.querySelector('.fa-volume-mute');
 const volumeUp = document.querySelector(".fa-volume-up");
+const expand = document.querySelector(".fa-expand");
+const compress = document.querySelector(".fa-compress");
+const play = document.getElementById("start");
+const howToPlay = document.getElementById("start_demo");
+const container = document.querySelector(".container");
+const containerGame = document.querySelector(".container_game");
+const back = document.getElementById("back");
 
+
+// Volume and Fullscreen
 volumeMute.addEventListener( 'click', () => {
     volumeMute.classList.add('none');
     volumeUp.classList.remove('none')
@@ -14,9 +23,35 @@ volumeUp.addEventListener( 'click', () => {
     volumeUp.classList.add('none')
 })
 
+expand.addEventListener( 'click', () => {
+    expand.classList.add('none');
+    compress.classList.remove('none');
+    document.documentElement.requestFullscreen();
+})
 
+compress.addEventListener( 'click', () => {
+    expand.classList.remove('none');
+    compress.classList.add('none');
+    document.exitFullscreen();
+})
 
+// button play
 
+play.addEventListener( 'click', () => {
+    containerGame.classList.remove('none');
+    containerGame.classList.add('flex');
+    container.classList.add('none');
+})
+
+// button back
+
+back.addEventListener( 'click', () => {
+    containerGame.classList.remove('flex');
+    container.classList.remove('none');
+    containerGame.classList.add('none');
+})
+
+// Random number
 
 function getRandomNumber(min,max) {
     let step1 = max - min + 1;

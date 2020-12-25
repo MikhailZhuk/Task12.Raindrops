@@ -17,24 +17,27 @@
 </head>
 
 <body>
-     <div class="conteiner1">
+  <div class="container">
      <div class="d-flex align-items-start justify-content-around p-4" style="height: 50vh;">
       <i class="fas fa-volume-up fa-3x">
-         <audio src="Boom.mp3" autostart="true" loop="true">NOT MUSIC</audio>
+         <audio src="boom.mp3" autostart="true" loop="true">NOT MUSIC</audio>
       </i>
       <i class="fas fa-volume-mute fa-3x none"></i>
+      <i class="fas fa-compress fa-3x none"></i>
       <i class="fas fa-expand fa-3x"></i>
     </div> 
     <div class="d-flex align-items-center justify-content-evenly" >
-      <button type="button"  class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
+      <button type="button" id="start" class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
         Play
       </button>
-      <button type="button" class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
+      <button type="button" id="start_demo" class="btn btn-outline-primary btn-lg" data-ripple-color="dark">
         How to play
       </button>
     </div>
-   </div>
-   <div class="conteiner_game d-flex"  >
+  </div>
+
+
+  <div class="container_game none">
      <div class="place">
 
        <div class="place_down">
@@ -55,7 +58,7 @@
          </div>    
         </div> 
         
-       </div>
+      </div>
       
         <svg x="0px" y="0px" style="display: none;">
           <symbol id="wave">
@@ -83,9 +86,11 @@
         
         <h2 class="p-1"><i class="fas fa-star"></i>  Score: <span class="point">0</span></h2>
       </div>
+       <button type="button" id="back" class="btn btn-outline-primary" data-ripple-color="dark">
+        Back
+       </button>
 
-       <buttom class="random">Push</buttom>
-
+       <p class="random">Push</p>
        
         <div class="wrapper">
             <input class="boxOUT" disabled type="text" id="display" value="0" name="">
@@ -106,10 +111,7 @@
        </div>
     </div>
 
-   </div>
-   
-
-
+  </div>
 </body>
 
 <!-- MDB -->
