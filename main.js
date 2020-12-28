@@ -10,17 +10,20 @@ const howToPlay = document.getElementById("start_demo");
 const container = document.querySelector(".container");
 const containerGame = document.querySelector(".container_game");
 const back = document.getElementById("back");
-
+// const rainVolume = document.(".rain")
+const snd = new Audio("boom.mp3"); 
 
 // Volume and Fullscreen
 volumeMute.addEventListener( 'click', () => {
     volumeMute.classList.add('none');
-    volumeUp.classList.remove('none')
+    volumeUp.classList.remove('none');
+    snd.play();
 })
 
 volumeUp.addEventListener( 'click', () => {
     volumeMute.classList.remove('none');
-    volumeUp.classList.add('none')
+    volumeUp.classList.add('none');
+    snd.pause();
 })
 
 expand.addEventListener( 'click', () => {
@@ -96,8 +99,6 @@ rand.addEventListener( 'click', () => {
 
 })
 
-
-
 //water
 const water=document.getElementById("water");
 let percent = 0;
@@ -106,7 +107,76 @@ let interval;
 interval=setInterval(function(){ 
   percent++;
   water.style.transform='translate(0'+','+(100-percent)+'%)';
-  if(percent==10){
+  if(percent==20){
     clearInterval(interval);
   }
 },60);
+
+// buttons calculator
+const button0 = document.getElementById('0');
+const button1 = document.getElementById('1');
+const button2 = document.getElementById('2');
+const button3 = document.getElementById('3');
+const button4 = document.getElementById('4');
+const button5 = document.getElementById('5');
+const button6 = document.getElementById('6');
+const button7 = document.getElementById('7');
+const button8 = document.getElementById('8');
+const button9 = document.getElementById('9');
+const buttonEnter = document.getElementById('Enter');
+const buttonDelete = document.getElementById('Delete');
+const buttonClear = document.getElementById('Clear');
+let displayTools = document.querySelector(".boxOUT");
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', function () {
+       // console.log(this.value);
+        calc(this.value);        
+    });
+})
+
+document.addEventListener('keydown', event => {
+    console.log(event.key);
+    if ((event.key).match(/[0-9%\/*\-+\(\)=]|Backspace|Enter/)) calc(event.key)
+})
+
+function calc(value) {
+      // если нажат знак равенства или Enter
+    if (value.match(/=|Enter/)) {
+        // пробуем выполнить операцию
+        try {
+            // вычисляем значение строки
+            // это возможно благодаря методу "evaluate" объекта "math"
+            // Math.trunc используется для округления до целого числа
+            displayTools.textContent = Math.trunc(math.evaluate(displayTools.textContent))
+            
+        // если операцию выполнить невозможно
+        } catch {
+            // сохраняем значение поля
+            let oldValue = displayTools.textContent
+            // создаем новую переменную
+            let newValue = 'repeat'
+            // выводим значение новой переменной в поле
+            displayTools.textContent = newValue
+            // через полторы секунды возвращаем полю старое значение
+            setTimeout(() => {
+                displayTools.textContent = oldValue
+            }, 1500)
+        }
+        
+    // если нажат символ "C"
+    } else if (value === 'Clear' ) {
+        // очищаем поле
+        displayTools.textContent = ''
+    
+    // если нажат символ "СЕ" или Backspace
+    } else if (value.match(/Backspace|Delete/)) {
+        // уменьшаем строку на один символ
+        display.textContent = displayTools.textContent.substring(0, displayTools.textContent.length - 1)
+        
+    // если нажата любая другая (отфильтрованная) кнопка или клавиша
+    } else {
+        // записываем ее значение в поле
+        displayTools.textContent += value
+    }
+}

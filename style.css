@@ -10,6 +10,16 @@ body {
   height: 100vh;
 }
 
+.title{
+  text-align: center;
+  font: bold 8rem Arial, sans-serif;
+  color: rgb(20, 95, 233);
+  margin: 0;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px rgba(23, 11, 73, 0.9);
+  padding: 0;
+}
+
 .none{
  display: none;
 }
@@ -53,8 +63,9 @@ body {
 
 .place_down {
   display: flex;
+  width: 400px;
   flex-direction: row;
-  align-items: space-between;
+  justify-content: space-around;
 }
 
 .drops {
@@ -80,7 +91,7 @@ body {
 }
 
 @keyframes drop {
-  0%   { transform: translateY(0px); }
+  0%   { transform: translateY(-100px); }
   50%  { transform: translateY(350px);}
   100% { transform: translateY(700px);}
 }
@@ -237,9 +248,12 @@ body {
 .boxOUT {
   font: bold 2rem Arial, sans-serif;
   text-align: end;
+  background: white;
   color: rgba(51, 22, 181, 0.9);
   border: 0.4rem solid rgba(51, 22, 181, 0.9);
   border-bottom: 0.2rem solid rgba(51, 22, 181, 0.9);
+  padding-top: 0.6rem;
+  padding-right: 0.4rem;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 1;
@@ -314,6 +328,10 @@ body {
     max-width: 100%;
   }
 
+  .title{
+    font: bold 5rem Arial, sans-serif;
+  }
+
   .tools {
     margin: 0;
     padding: 0;
@@ -373,7 +391,7 @@ body {
     border-bottom: 0.2rem solid rgba(51, 22, 181, 0.9);
   }
 
-  .boxOUT {
+  .boxOUT{   
     font: bold 1.5rem Arial, sans-serif;
     border: 0.2rem solid rgba(51, 22, 181, 0.9);
     border-bottom: 0.1rem solid rgba(51, 22, 181, 0.9);
@@ -385,15 +403,22 @@ body {
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 400px) {
   .container_game {
     grid-template-areas: "place"
                          "tools";
     grid-template-rows: 1fr 1fr ;
     grid-template-columns: 1fr;
   }
+  .title{
+    font: bold 4rem Arial, sans-serif;
+  }
+
   .plase {
     grid-area: "place";
   }
 
+  .place_down {
+    width: 200px;
+  }
 }
