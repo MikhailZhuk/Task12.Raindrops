@@ -10,20 +10,20 @@ const howToPlay = document.getElementById("start_demo");
 const container = document.querySelector(".container");
 const containerGame = document.querySelector(".container_game");
 const back = document.getElementById("back");
-// const rainVolume = document.(".rain")
-const snd = new Audio("boom.mp3"); 
+const rainVolume = document.querySelector(".rain");
+
 
 // Volume and Fullscreen
 volumeMute.addEventListener( 'click', () => {
     volumeMute.classList.add('none');
     volumeUp.classList.remove('none');
-    snd.play();
+    rainVolume.play();
 })
 
 volumeUp.addEventListener( 'click', () => {
     volumeMute.classList.remove('none');
     volumeUp.classList.add('none');
-    snd.pause();
+    rainVolume.pause();
 })
 
 expand.addEventListener( 'click', () => {
